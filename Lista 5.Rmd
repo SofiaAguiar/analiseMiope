@@ -8,6 +8,12 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+if (!require(pacman)) install.packages('pacman')
+library(pacman)
+pacman::p_load(tidyverse, gt, aplore3, RcolorBrewer, hrbrthemes)
+
+data('myopia')
+dados = myopia
 ```
 
 Gráficos
@@ -40,9 +46,51 @@ Tabelas
 Row
 -----------------------------------------------------------------------
 
-### Chart B
+### Tabela 1 - Relação entre pais, filhos e miopia
 
 ```{r}
+
+freq_relativa = function(dados, miope, maemiope, paimiope){
+  total = as.numeric(count(filter(dados, myopic == miope)))
+  rotulo = as.numeric(count(filter(dados,
+                                   myopic == miope 
+                                   & mommy == maemiope
+                                   & dadmy == paimiope)))
+  return (rotulo/total*100)
+}
+
+ambos = c(freq_relativa(dados, "Yes", "Yes", "Yes"),
+          freq_relativa(dados, "No", "Yes", "Yes"))
+
+apenas_mae = c(freq_relativa(dados, "Yes", "Yes", "No"),
+               freq_relativa(dados, "No", "Yes", "No"))
+
+apenas_pai = c(freq_relativa(dados, "Yes", "No", "Yes"),
+               freq_relativa(dados, "No", "No", "Yes"))
+
+nenhum = c(freq_relativa(dados, "Yes", "No", "No"),
+           freq_relativa(dados, "No", "No", "No"))
+
+tabela = data.frame(crianca = c("Míope", "Não míope"), 
+                   ambos, 
+                   apenas_mae,
+                   apenas_pai,
+                   nenhum)
+
+colunas = c(ambos, apenas_mae, apenas_pai, nenhum)
+
+tabela %>% gt() %>% 
+  tab_header(title = "Relação entre pais, filhos e miopia") %>%
+  cols_label(
+    crianca = 'Criança',
+    apenas_mae = 'Apenas mãe',
+    apenas_pai = 'Apenas pai',
+    ambos = 'Ambos', 
+    nenhum = 'Nenhum'
+  ) %>%
+  tab_spanner(label = "Pais com miopia (%)", 
+              columns = c(ambos, apenas_mae, apenas_pai,nenhum)) %>% 
+  fmt_number(columns = c(ambos, apenas_mae, apenas_pai, nenhum), decimals = 2)
 
 ```
 
@@ -51,13 +99,6 @@ Row
 ```{r}
 
 ```
-
-### Chart D
-
-```{r}
-
-```
-
 
 Sobre
 =======================================================================

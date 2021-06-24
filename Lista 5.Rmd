@@ -1,9 +1,11 @@
 ---
 title: "Análise descritiva - myopia database"
+author: "Aline Cristina Pinto (2020031412) e Sofia Aguiar (2020031811)"
 output: 
-  flexdashboard::flex_dashboard:
-    orientation: rows
-    social: menu
+  html_document:
+    theme: cosmo
+    toc: false
+    number_sections: false
 ---
 
 ```{r setup, include=FALSE}
@@ -16,39 +18,17 @@ data('myopia')
 dados = myopia
 ```
 
-Gráficos
-=======================================================================
+## {.tabset .tabset-fade}
 
-Row
------------------------------------------------------------------------
+### Gráficos
 
-### Chart B
+(tab content)
 
-```{r}
+### Tabelas
 
-```
+<div align="center">**Tabela 1 - Relação entre pais, filhos e miopia**</div>
 
-### Chart C
-
-```{r}
-
-```
-
-### Chart D
-
-```{r}
-
-```
-
-Tabelas
-=======================================================================
-
-Row
------------------------------------------------------------------------
-
-### Tabela 1 - Relação entre pais, filhos e miopia
-
-```{r}
+```{r, echo=FALSE}
 
 freq_relativa = function(dados, miope, maemiope, paimiope){
   total = as.numeric(count(filter(dados, myopic == miope)))
@@ -76,9 +56,9 @@ tabela = data.frame(crianca = c("Míope", "Não míope"),
                    apenas_mae,
                    apenas_pai,
                    nenhum)
+```
 
-colunas = c(ambos, apenas_mae, apenas_pai, nenhum)
-
+```{r, echo=FALSE}
 tabela %>% gt() %>% 
   tab_header(title = "Relação entre pais, filhos e miopia") %>%
   cols_label(
@@ -91,17 +71,18 @@ tabela %>% gt() %>%
   tab_spanner(label = "Pais com miopia (%)", 
               columns = c(ambos, apenas_mae, apenas_pai,nenhum)) %>% 
   fmt_number(columns = c(ambos, apenas_mae, apenas_pai, nenhum), decimals = 2)
-
 ```
 
-### Chart C
+<br>
+<div align="center">
+A _Tabela 1 - Relação entre pais, filhos e miopia_ foi criada a partir das variáveis myopic, mommy e dadmy, e busca mostrar, através de uma tabela de frequência relativa, a proporção de crianças míopes e não míopes e a condição de seus pais.
 
-```{r}
+Pode-se observar que para crianças que possuem miopia, apenas 6% dos pais não possuem essa condição óptica. Já para as crianças que não possuem miopia, essa proporção é quase igualmente distribuída entre as opções de ambos os pais possuírem miopia, apenas a mãe, apenas o pai ou nenhum deles possuírem essa condição óptica. 
+</div>
 
-```
+<br><br>
+<div align="center">**Tabela 2 - WIP**</div>
 
-Sobre
-=======================================================================
+### Sobre
 
-Row
------------------------------------------------------------------------
+testestets

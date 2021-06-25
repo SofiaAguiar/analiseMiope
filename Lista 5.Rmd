@@ -116,3 +116,33 @@ Pode-se observar que a maioria das crianças, independente do sexo, não possuem
 myopia faz parte de um conjunto de dados da Orinda Longitudinal Study of Myopia (OLSM), um estudo sobre o desenvolvimento do componente ocular e fatores de risco para o início da miopia em crianças. 
 
 A coleta de dados desse database foi iniciada durante o período escolar de 1989–1990 e continuou anualmente até o ano escolar de 2000–2001 e contém não só dados sobre a criança, mas também aspectos familiares. Os dados sobre as partes que compõem o olho da criança (os componentes oculares) foram coletados durante exames em um dia escolar. Sobre a história familiar e atividades visuais, os dados foram coletados anualmente em uma pesquisa respondida por um dos pais ou responsável.
+
+Ao todo, 17 variáveis e 618 indivíduos compõem o banco de dados.
+
+**Variáveis:**
+
+**id:**
+
+**studyyear:**
+
+**myopic:**
+
+**age:**
+
+**gender:**
+
+**spheq:**
+
+**al:**
+
+**acd:**
+
+**lt:**
+**vcd:**
+**id:**
+**id:**
+**id:**
+**id:**
+**id:**
+**id:**
+

@@ -9,10 +9,9 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-library(flexdashboard)
 if (!require(pacman)) install.packages('pacman')
 library(pacman)
-pacman::p_load(tidyverse, gt, aplore3, RcolorBrewer, hrbrthemes)
+pacman::p_load(tidyverse, gt, aplore3, RcolorBrewer, hrbrthemes, flexdashboard)
 
 data('myopia')
 dados = myopia
@@ -22,7 +21,128 @@ dados = myopia
 
 ### Gráficos
 
-(tab content)
+<div align="center">**Gráfico 1 - Proporção de sujeitos míopes e não míopes no estudo**</div>
+
+```{r, echo=FALSE, fig.align='center'}
+cores1 =  cores1 = c("#FC8D62","#66C2A5")
+pie(table(dados$myopic), main = 'Proporção de míopes dentro do estudo', 
+    border = 'white', col = cores1, labels = c('Não - 86,9%', 'Sim - 13,1%'))
+```
+
+<div align="center">
+O estudo acompanhou 618 crianças entre 5 e 9 anos para coletar dados sobre o desenvolvimento da miopia. Dentro das pessoas acompanhadas pelo estudo apenas 13,1% foram diagnosticadas como míopes na primeira consulta ou nos cinco anos seguintes, enquanto seus hábitos e informações clínicas foram monitorados. 
+</div>
+
+<div align="center">
+<br>
+<br>
+<br>
+**Gráfico 2 - Comparação entre horas de leitura semanais entre sujeitos míopes e não-míopes**</div>
+
+```{r, echo=FALSE, fig.align='center'}
+dados %>% 
+  ggplot(aes(x=readhr, group=myopic, fill=myopic))+
+  geom_density() +
+  theme(legend.position="none") +
+  ggtitle("Horas por semana lendo para não-míopes e míopes") +
+  theme_ipsum() +
+  theme(
+    legend.position="none",
+    panel.spacing = unit(0, "lines"),
+    strip.text.x = element_text(size = 11),
+    plot.title = element_text(size=16)
+  ) +
+  facet_wrap(~myopic)
+```
+
+<div align="center">
+Para comparar as observações das pessoas com e sem miopia devemos comparar as distribuições e não as observações pela diferença de tamanho nas amostras. O gráfico acima compara as distribuições das horas gastas lendo no intervalo de uma semana divididos entre míopes e não míopes. Podemos visualizar pela comparação que os míopes passam mais tempo lendo que seus contrapartes de visão normal. 
+</div>
+
+<div align="center">
+<br>
+<br>
+<br>
+**Gráfico 3 - Comparação entre horas assistindo televisão em uma semana entre sujeitos míopes e não-míopes**</div>
+
+```{r, echo=FALSE, fig.align='center'}
+dados %>% 
+  ggplot(aes(x=tvhr, group=myopic, fill=myopic))+
+  geom_density() +
+  theme(legend.position="none") +
+  ggtitle("Horas por semana vendo TV para não-míopes e míopes") +
+  theme_ipsum() +
+  theme(
+    legend.position="none",
+    panel.spacing = unit(0, "lines"),
+    strip.text.x = element_text(size = 10),
+    plot.title = element_text(size=16)
+  ) +
+  facet_wrap(~myopic)
+```
+
+<div align="center">
+O gráfico acima compara as distribuições das horas gastas assistindo TV no intervalo de uma semana divididos entre míopes e não míopes. Novamente, podemos observar que os míopes passam mais tempo vendo TV que seus contrapartes de visão normal, já que sua distribuição é mais concentrada à direita do que no gráfico dos não-míopes. 
+</div>
+
+<div align="center">
+<br>
+<br>
+<br>
+**Gráfico 4 - Comparação entre horas de atividades similares a trabalho em uma semana entre sujeitos míopes e não-míopes**</div>
+
+```{r, echo=FALSE, fig.align='center'}
+dados %>% 
+  ggplot(aes(x=diopterhr, group=myopic, fill=myopic))+
+  geom_density() +
+  theme(legend.position="none") +
+  ggtitle("Horas por semana de atividades similares a trabalho para não-míopes e míopes") +
+  theme_ipsum() +
+  theme(
+    legend.position="none",
+    panel.spacing = unit(0, "lines"),
+    strip.text.x = element_text(size = 10),
+    plot.title = element_text(size=14)
+  ) +
+  facet_wrap(~myopic)
+```
+
+<div align="center">
+O gráfico acima compara as distribuições das horas gastas fazendo atividades similares a trabalho no intervalo de uma semana divididos entre míopes e não míopes. Da mesma forma que nos gráficos anteriores, podemos observar que os míopes passam mais tempo desempenhando tais atividades do que seus contrapartes de visão normal, já que sua distribuição é mais concentrada à direita do que no gráfico dos não-míopes. 
+</div>
+
+<div align="center">
+<br>
+<br>
+<br>
+**Gráfico 5 - Gráfico para a frequência das idades dos sujeitos do estudo em sua primeira consulta**</div>
+
+```{r, echo=FALSE, fig.align='center'}
+dados %>% 
+  ggplot(aes(x=as.factor(age), fill=as.factor(age) )) + 
+    geom_bar( ) +
+    scale_fill_brewer(palette = "Set2") +
+    theme(legend.position="none") +
+    ggtitle('Idade dos sujeitos do estudo na primeira consulta') +
+    theme_ipsum() +
+    theme(
+      legend.position="none",
+      panel.spacing = unit(0, "lines"),
+      strip.text.x = element_text(size = 10),
+      plot.title = element_text(size=16)
+    )
+```
+
+<div align="center">
+O gráfico acima mostra a frequência da idade dos sujeitos no início do estudo, evidenciando que a maior parte das pessoas são crianças de 6 anos e que, ao final do estudo, tinham 11 anos. Essa é a faixa etária onde é ais frequente o diagnóstico de miopia, apesar de que ela pode se desenvolver em qualquer idade.
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
 
 ### Tabelas
 

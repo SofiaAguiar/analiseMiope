@@ -179,6 +179,7 @@ tabela = data.frame(crianca = c("Míope", "Não míope"),
 ```
 
 ```{r, echo=FALSE}
+
 tabela %>% gt() %>% 
   tab_header(title = "Relação entre pais, filhos e miopia") %>%
   cols_label(
@@ -200,8 +201,31 @@ A _Tabela 1 - Relação entre pais, filhos e miopia_ foi criada a partir das var
 Pode-se observar que para crianças que possuem miopia, apenas 6% dos pais não possuem essa condição óptica. Já para as crianças que não possuem miopia, essa proporção é quase igualmente distribuída entre as opções de ambos os pais possuírem miopia, apenas a mãe, apenas o pai ou nenhum deles possuírem essa condição óptica. 
 </div>
 
-<br><br>
-<div align="center">**Tabela 2 - WIP**</div>
+<br>
+<div align="center">**Tabela 2 - Condição de miopia das crianças por sexo **</div>
+```{r, echo=FALSE}
+
+tabela = round(prop.table(table(dados$myopic, dados$gender))*100, digits=2)
+tabela= as.data.frame.matrix(tabela) 
+rownames(tabela) = NULL
+```
+
+```{r, echo=FALSE}
+
+tabela %>% gt() %>% 
+  tab_header(title = "Condição de miopia das crianças por sexo") %>%
+  cols_label(
+    Male = 'Masculino',
+    Female = 'Feminino'
+  )
+```
+
+<br>
+<div align="center">
+A _Tabela 2 - Condição de miopia das crianças por sexo_ foi criada a partir das variáveis myopic e gender, e busca mostrar, através de uma tabela de frequência relativa, a proporção de crianças míopes e não míopes pelo sexo.
+
+Pode-se observar que a maioria das crianças, independente do sexo, não possuem miopia. Ainda, a proporção de crianças do sexo feminino que possuem miopia é maior do que as crianças do sexo masculino, porém essa diferença é muito pequena.
+</div>
 
 ### Sobre
 

@@ -229,4 +229,89 @@ Pode-se observar que a maioria das crianças, independente do sexo, não possuem
 
 ### Sobre
 
-testestets
+**Pacote:** Aplore 3
+
+**Banco de dados:** myopia
+
+myopia faz parte de um conjunto de dados da Orinda Longitudinal Study of Myopia (OLSM), um estudo sobre o desenvolvimento do componente ocular e fatores de risco para o início da miopia em crianças. 
+
+A coleta de dados desse database foi iniciada durante o período escolar de 1989–1990 e continuou anualmente até o ano escolar de 2000–2001 e contém não só dados sobre a criança, mas também aspectos familiares. Os dados sobre as partes que compõem o olho da criança (os componentes oculares) foram coletados durante exames em um dia escolar. Sobre a história familiar e atividades visuais, os dados foram coletados anualmente em uma pesquisa respondida por um dos pais ou responsável.
+
+Ao todo, 17 variáveis e 618 indivíduos compõem o banco de dados.
+
+**Variáveis:**
+
+**id:**
+Identificador de sujeito
+\n
+
+**studyyear:**
+Ano que entrou no estudo
+\n 
+
+
+**myopic:**
+Se foi diagnosticado como míope nos cinco anos de acompanhamento
+\n
+
+**age:**
+Idade em anos na primeira visita
+\n
+
+
+**gender:**
+Sexo (Masculino ou Feminino)
+\n
+
+
+**spheq:**
+Refração equivalente esférica (dioptria)
+\n
+
+
+**al:**
+Comprimento axial (mm)
+\n
+
+
+**acd:**
+Profundidade da Câmara Anterior (mm)
+\n
+
+
+
+**lt:**
+Espessura da lente (mm)
+\n
+
+
+**vcd:**
+Profundidade da câmara vítrea (mm)
+\n
+
+
+**sporthr:**
+Horas por semana praticando esportes fora da escola
+\n
+
+**readhr:**
+Horas por semana lendo fora da escola
+\n
+**comphr:**
+Horas por semana usando computador fora da escola
+\n
+**studyhr:**
+Horas por semana estudando fora da escola
+\n
+**tvhr:**
+Horas por semana vendo televisão fora da escola
+\n
+**diopterhr**
+Compósito de horas por semana praticando atividades similares a trabalho fora da escola
+\n
+**mommy**
+Se a mãe do sujeito é míope
+\n
+**dadmy**
+Se o pai do sujeito é míope
+\n

@@ -122,27 +122,76 @@ Ao todo, 17 variáveis e 618 indivíduos compõem o banco de dados.
 **Variáveis:**
 
 **id:**
+Identificador de sujeito
+\n
 
 **studyyear:**
+Ano que entrou no estudo
+\n 
+
 
 **myopic:**
+Se foi diagnosticado como míope nos cinco anos de acompanhamento
+\n
 
 **age:**
+Idade em anos na primeira visita
+\n
+
 
 **gender:**
+Sexo (Masculino ou Feminino)
+\n
+
 
 **spheq:**
+Refração equivalente esférica (dioptria)
+\n
+
 
 **al:**
+Comprimento axial (mm)
+\n
+
 
 **acd:**
+Profundidade da Câmara Anterior (mm)
+\n
+
+
 
 **lt:**
-**vcd:**
-**id:**
-**id:**
-**id:**
-**id:**
-**id:**
-**id:**
+Espessura da lente (mm)
+\n
 
+
+**vcd:**
+Profundidade da câmara vítrea (mm)
+\n
+
+
+**sporthr:**
+Horas por semana praticando esportes fora da escola
+\n
+
+**readhr:**
+Horas por semana lendo fora da escola
+\n
+**comphr:**
+Horas por semana usando computador fora da escola
+\n
+**studyhr:**
+Horas por semana estudando fora da escola
+\n
+**tvhr:**
+Horas por semana vendo televisão fora da escola
+\n
+**diopterhr**
+Compósito de horas por semana praticando atividades similares a trabalho fora da escola
+\n
+**mommy**
+Se a mãe do sujeito é míope
+\n
+**dadmy**
+Se o pai do sujeito é míope
+\n
